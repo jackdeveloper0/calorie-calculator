@@ -30,13 +30,12 @@ function calcularCalorias() {
     }
 
     let calculoCalorias;
-    if (genero.id == 'femenino') {
-        calcularCalorias = actividad.value * ((multiplicadorTMB.peso * peso.value) +
-            (multiplicadorTMB.altura * altura.value) - (multiplicadorTMB.edad * edad.value) - 161)
-    } else {
-        calcularCalorias = actividad.value * ((multiplicadorTMB.peso * peso.value) +
-            (multiplicadorTMB.altura * altura.value) - (multiplicadorTMB.edad * edad.value) - 5);
-    };
+    let producto = actividad.value * (multiplicadorTMB.peso * peso.value) +
+             (multiplicadorTMB.altura * altura.value) - (multiplicadorTMB.edad * edad.value);
+
+    calcularCalorias = (genero.id=='femenino')?producto-161:producto-5;
+ 
+    
     //Formula hombres: valor actividad x (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) + 5
 
     //Formula mujeres: valor actividad x (10 x peso en kg) + (6,25 × altura en cm) - (5 × edad en años) - 161
